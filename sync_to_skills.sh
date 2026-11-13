@@ -14,7 +14,9 @@ set -u
 
 SRC="$(cd "$(dirname "$0")" && pwd)"
 DST="${HOME}/.workbuddy/skills/prompt-refinery"
-PY="C:/Users/sqwan/.workbuddy/binaries/python/versions/3.13.12/python.exe"
+# Python 解释器：优先用环境变量 WORKBUDDY_PYTHON 覆盖；否则按 WorkBuddy 默认布局从 $HOME 推导。
+# 使用变量推导而非硬编码用户名绝对路径，保证脚本在任意用户机器可移植，且不被发布校验判为硬编码路径。
+PY="${WORKBUDDY_PYTHON:-$HOME/.workbuddy/binaries/python/versions/3.13.12/python.exe}"
 
 echo "==> 同步源 : $SRC"
 echo "==> 同步目标: $DST"
