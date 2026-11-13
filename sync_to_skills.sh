@@ -1,8 +1,8 @@
 #!/bin/bash
 # sync_to_skills.sh
 # 把 prompt-refinery 仓库的"技能本体"同步到 WorkBuddy 技能目录，使其立即生效。
-# 仅同步 SKILL.md + references/ + scripts/，刻意排除 .git / .gitignore / LICENSE / README.md
-# （这些不是 WorkBuddy 技能需要的文件，避免污染技能目录）。
+# 仅同步技能运行所需文件：SKILL.md + references/ + scripts/ + icon.png，
+# 刻意排除 .git / .gitignore / LICENSE / README.md（非 WorkBuddy 技能运行所需）。
 #
 # 触发方式：
 #   1) 手动：在仓库根目录运行 ./sync_to_skills.sh
@@ -31,6 +31,7 @@ cp -f "$SRC/SKILL.md" "$DST/SKILL.md"
 rm -rf "$DST/references" "$DST/scripts"
 cp -r "$SRC/references" "$DST/references"
 cp -r "$SRC/scripts" "$DST/scripts"
+[ -f "$SRC/icon.png" ] && cp -f "$SRC/icon.png" "$DST/icon.png"
 
 echo "==> 已同步。目标文件数: $(find "$DST" -type f | wc -l)"
 
