@@ -3,6 +3,9 @@ name: prompt-refinery
 description: "把用户模糊、口语化的 AI 任务请求，按「角色+背景+目标+约束+格式」五要素引擎补全并做约束冲突检测，产出可直接复制给任意 AI 的专业提示词，并给出「优化前/优化后」评分对照、多领域模板一键套用与对话内交互微调（展示后你随时说「更简洁/加约束/换英文」即可改到满意）。默认只做纯加工（仅对话内展示精炼后的提示词，不自动执行），仅在用户显式说「执行/开始做」后才以该提示词为简报执行真实任务。当用户说「帮我把这个需求变成给 AI 的提示词」「怎么写 prompt 才不让 AI 说废话」「套万能公式给我生成一段指令」「把这个任务结构化一下再交给 AI」时触发。边界：不读写用户文件、不要求密钥、不联网、提示词仅在对话内展示不落盘、不收集或上传用户数据、不含付费墙。"
 version: 1.0.0
 agent_created: true
+description_zh: "把用户模糊、口语化的 AI 任务需求，按「角色+背景+目标+约束+格式」五要素引擎补全并做约束冲突检测，产出可直接复制给任意 AI 的专业提示词；提供「优化前/优化后」评分对照、多领域模板一键套用与对话内交互微调。默认纯加工（仅展示不自动执行），用户说「执行」才动手。"
+description_en: "Turn vague, colloquial AI task requests into professional, copy-paste-ready prompts via a five-element (role/context/goal/constraint/format) engine with conflict detection; delivers before/after scoring, one-click domain templates, and in-chat refinement. Defaults to pure refinement (show only, no auto-execute); say \"execute\" to run."
+author: wangshq1990
 ---
 
 # 提示词精炼厂 · Prompt Refinery
@@ -91,7 +94,7 @@ agent_created: true
 - **约束互斥**：若同时存在「字数 ≤ N」+「表格格式」+「目标含 ≥3 个必须项」，警告模型会为凑字数牺牲论证深度，建议放宽某一项或拆分任务。
 - **约束数量**：约束超过 4 条时，建议标注优先级（硬约束 vs 软偏好），避免模型平均用力。
 
-> **硬约束（满足 AC6 不落盘）**：技能在本 Skill 的任何流程中调用 `build_prompt.py` 时**绝不传 `--output`**——提示词仅打印到对话内、不生成任何文件。脚本默认只打印，仅 `--output` 才会落盘，而本流程不使用该开关。
+> **硬约束（满足 AC6 不落盘）**：技能在本 Skill 的任何流程中调用 `scripts/build_prompt.py` 时**绝不传 `--output`**——提示词仅打印到对话内、不生成任何文件。脚本默认只打印，仅 `--output` 才会落盘，而本流程不使用该开关。
 
 **第 6 步 · F1 评分对比【F1 落点】**
 对「用户原提示词」与「精炼后提示词」分别评分，输出「优化前 / 优化后」对照。
