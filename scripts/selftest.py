@@ -86,7 +86,7 @@ def main() -> int:
         record(cid, kind, exp, actual, actual == exp)
 
     for dom in DOMAINS:
-        prof = SKILL / "references" / "domain-profiles" / f"{dom}.md"
+        prof = SKILL / "references" / f"{dom}.md"
         if not prof.exists():
             record(f"P-{dom}", "profile", "档案存在", "缺失", False)
             continue
@@ -122,7 +122,7 @@ def main() -> int:
     # 故意不写入 results，避免与既有全绿结果耦合；待 F2 内容稳定后可评估升级为阻断。
     template_missing = []
     for dom in DOMAINS:
-        prof = SKILL / "references" / "domain-profiles" / f"{dom}.md"
+        prof = SKILL / "references" / f"{dom}.md"
         text = prof.read_text(encoding="utf-8") if prof.exists() else ""
         has_tpl = "## 模板骨架（可一键套用）" in text
         print(f"[{'PASS' if has_tpl else 'WARN'}] T-guard-templates ({dom}) "

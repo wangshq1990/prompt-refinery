@@ -34,7 +34,7 @@
 ## 三大新能力（F1 / F2 / F3）
 
 - **F1 · 优化前 / 优化后评分对照**：对「你的原提示词」和「精炼后提示词」分别打分。确定性维度（覆盖率、约束冲突）由脚本 `scripts/build_prompt.py` 对两者各跑一次 `--json` 得出；质性维度（可读性 / 完整性 / 约束明确度 / 可执行性）由模型评估。对照可观察地体现提升（缺槽减少、冲突消除、质性分提高）。
-- **F2 · 多领域模板一键套用**：内置营销 / 软件工程 / 学术 / 法律 / 数据分析 / 产品六大领域模板（见各 `references/domain-profiles/*.md` 的「模板骨架」段）。说一句「用营销模板给我起个头」，即可生成领域最佳实践骨架，再微调。未覆盖领域走通用骨架兜底。
+- **F2 · 多领域模板一键套用**：内置营销 / 软件工程 / 学术 / 法律 / 数据分析 / 产品六大领域模板（见各 `references/*.md` 的「模板骨架」段）。说一句「用营销模板给我起个头」，即可生成领域最佳实践骨架，再微调。未覆盖领域走通用骨架兜底。
 - **F3 · 对话内交互微调**：展示后你可以要求「更简洁 / 加一条约束 / 换成英文 / 换角色 / 改背景」，技能在**对话内**迭代改写并重新展示，**全程不落盘**。
 
 ## 使用流程
@@ -57,13 +57,13 @@ prompt-refinery/
 │   ├── five-element-method.md       # 方法论深度说明
 │   ├── domain-portability.md        # 跨领域移植契约（含 F2 通用骨架兜底）
 │   ├── quality-rubric.md            # 产出验收标准与 F1 评分对照基线
-│   └── domain-profiles/             # 6 个领域的默认值档案（含「模板骨架」段）
-│       ├── marketing.md
-│       ├── software-engineering.md
-│       ├── academic-writing.md
-│       ├── legal.md
-│       ├── data-analysis.md
-│       └── product.md
+│   ├── authoritative-sourcing.md    # F4 领域权威溯源检索契约与权威原型
+│   ├── marketing.md                 # 领域档案：营销
+│   ├── software-engineering.md       # 领域档案：软件工程
+│   ├── academic-writing.md          # 领域档案：学术写作
+│   ├── legal.md                     # 领域档案：法律
+│   ├── data-analysis.md             # 领域档案：数据分析
+│   └── product.md                   # 领域档案：产品
 ├── scripts/
 │   ├── build_prompt.py              # 确定性组装 + 覆盖率/冲突校验（含 --json）
 │   └── selftest.py                  # 自检用例

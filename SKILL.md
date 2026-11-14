@@ -80,7 +80,7 @@ author: wangshq1990
 
 **第 3 步 · 加载领域档案 / 套用 F2 模板【F2 落点】**
 
-- 普通：按第 1 步领域读 `references/domain-profiles/<领域>.md` 取结构建议。
+- 普通：按第 1 步领域读 `references/<领域>.md` 取结构建议。
 - 若用户选「用某领域模板起头」→ 读取该档案「## 模板骨架（可一键套用）」段，把 `{{占位符}}` 替换为用户提供内容，生成骨架后进入 F3 微调再继续。
 - 其它领域 → 读 `references/domain-portability.md` 契约临时生成通用骨架并标「未加载领域默认值」。
 
@@ -212,7 +212,7 @@ author: wangshq1990
 
 ## 参考
 
-深度方法论见 `references/five-element-method.md`；跨领域移植与扩展机制见 `references/domain-portability.md`；产出验收标准见 `references/quality-rubric.md`；领域权威溯源检索契约与权威原型见 `references/authoritative-sourcing.md`。各领域一键套用模板见各 `references/domain-profiles/*.md` 的「模板骨架（可一键套用）」段。
+深度方法论见 `references/five-element-method.md`；跨领域移植与扩展机制见 `references/domain-portability.md`；产出验收标准见 `references/quality-rubric.md`；领域权威溯源检索契约与权威原型见 `references/authoritative-sourcing.md`。各领域一键套用模板见各 `references/*.md` 的「模板骨架（可一键套用）」段。
 
 @references/five-element-method.md
 @references/domain-portability.md
